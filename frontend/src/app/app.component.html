@@ -32,10 +32,7 @@
       </span>
     </div>
     <div class="header-right">
-      <!-- Theme Toggle -->
-      <button class="theme-toggle-btn" (click)="toggleDarkMode()" [title]="isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'">
-        {{ isDarkMode ? '☀️' : '🌙' }}
-      </button>
+      <!-- Theme fixed to dark (toggle removed) -->
 
       <!-- Settings Menu (only visible when authenticated) -->
       <div class="settings-menu-container" *ngIf="currentUser">

@@ -50,7 +50,7 @@ export class AppComponent implements OnInit, AfterViewChecked {
   currentUser: ClerkUser | null = null;
 
   // ── Theme State ──
-  isDarkMode = false;
+  isDarkMode = true;
   showSettingsMenu = false;
   showUploadSettings = false;
 
@@ -136,11 +136,10 @@ export class AppComponent implements OnInit, AfterViewChecked {
   }
 
   private loadThemePreference() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      this.isDarkMode = true;
-      document.documentElement.setAttribute('data-theme', 'dark');
-    }
+    // Force dark mode by default and persist it
+    this.isDarkMode = true;
+    document.documentElement.setAttribute('data-theme', 'dark');
+    try { localStorage.setItem('theme', 'dark'); } catch {}
   }
 
   // ── Settings Menu ──
